@@ -45,7 +45,10 @@ final class Transaction {
 
         switch type {
         case .income:
-            if destinationAccount == nil { errors.append("Rekening is verplicht voor inkomsten.") }
+            // ✅ Geen rekening vereist voor inkomsten
+            // (Categorie wordt gekozen in de UI; indien je later ook categorie-validatie voor income wil,
+            // voeg dat hier toe. Voor nu: geen rekening-check.)
+            break
 
         case .expense:
             if sourceAccount == nil { errors.append("Rekening is verplicht voor uitgaven.") }
