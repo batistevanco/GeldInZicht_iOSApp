@@ -39,6 +39,8 @@ struct AddEditTransactionView: View {
 
     @State private var errors: [String] = []
     @State private var showDeleteConfirm = false
+    @State private var showErrorAlert = false
+    @State private var showCategoryManager = false
 
     private var currencyCode: String { settings.first?.currencyCode ?? "EUR" }
 
@@ -93,17 +95,19 @@ struct AddEditTransactionView: View {
                 if mainSegment == 1 { expenseSection }
                 if mainSegment == 2 { savingSection }
                 if mainSegment == 3 { transferSection }
-
-                if !errors.isEmpty {
-                    Section {
-                        ForEach(errors, id: \.self) { e in
-                            Text(e).foregroundStyle(.red)
-                        }
-                    }
-                }
             }
             .scrollDismissesKeyboard(.interactively)
             .navigationTitle(transactionToEdit == nil ? "Nieuwe transactie" : "Transactie bewerken")
+            .alert("Kan transactie niet opslaan", isPresented: $showErrorAlert) {
+                Button("OK", role: .cancel) { }
+            } message: {
+                Text(errors.joined(separator: "\n"))
+            }
+            .sheet(isPresented: $showCategoryManager) {
+                NavigationStack {
+                    CategoriesManagementView()
+                }
+            }
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
                     Button("Annuleren") { dismiss() }
@@ -168,7 +172,7 @@ struct AddEditTransactionView: View {
         }
     }
 
-    // MARK: - Sections (unchanged)
+    // MARK: - Sections
     private var incomeSection: some View {
         Section(header: FormSectionHeader(title: "Inkomen")) {
             Picker("Categorie", selection: $selectedCategory) {
@@ -177,8 +181,15 @@ struct AddEditTransactionView: View {
                     Text(c.name).tag(Category?.some(c))
                 }
             }
+
+            Button {
+                showCategoryManager = true
+            } label: {
+                Label("Nieuwe categorie toevoegen", systemImage: "plus.circle")
+            }
         }
     }
+
     private var expenseSection: some View {
         Section(header: FormSectionHeader(title: "Uitgave")) {
             Picker("Categorie", selection: $selectedCategory) {
@@ -186,6 +197,12 @@ struct AddEditTransactionView: View {
                 ForEach(categories) { c in
                     Text(c.name).tag(Category?.some(c))
                 }
+            }
+
+            Button {
+                showCategoryManager = true
+            } label: {
+                Label("Nieuwe categorie toevoegen", systemImage: "plus.circle")
             }
 
             Picker("Rekening (gaat af)", selection: $sourceAccount) {
@@ -321,7 +338,12 @@ struct AddEditTransactionView: View {
         let validationErrors = draft.validate()
         if !validationErrors.isEmpty {
             errors = validationErrors
-            return   // ⛔️ ABSOLUUT NIET OPSLAAN
+            showErrorAlert = true
+
+            // SwiftData auto-insert fix
+            context.delete(draft)
+
+            return   // ⛔️ STOP — nothing persists
         }
 
         // ❗ PAS HIER wordt er effectief opgeslagen
