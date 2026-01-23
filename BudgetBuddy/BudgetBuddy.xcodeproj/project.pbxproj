@@ -6,8 +6,19 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXContainerItemProxy section */
+		59690B242F217E5B00C03089 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 596213872F1FCA4000319AFE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5962138E2F1FCA4000319AFE;
+			remoteInfo = BudgetBuddy;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		5962138F2F1FCA4000319AFE /* BudgetBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BudgetBuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		59690B202F217E5B00C03089 /* BudgetBuddyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BudgetBuddyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -20,6 +31,13 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		5962138C2F1FCA4000319AFE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		59690B1D2F217E5B00C03089 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -41,6 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				5962138F2F1FCA4000319AFE /* BudgetBuddy.app */,
+				59690B202F217E5B00C03089 /* BudgetBuddyTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -70,6 +89,26 @@
 			productReference = 5962138F2F1FCA4000319AFE /* BudgetBuddy.app */;
 			productType = "com.apple.product-type.application";
 		};
+		59690B1F2F217E5B00C03089 /* BudgetBuddyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 59690B282F217E5B00C03089 /* Build configuration list for PBXNativeTarget "BudgetBuddyTests" */;
+			buildPhases = (
+				59690B1C2F217E5B00C03089 /* Sources */,
+				59690B1D2F217E5B00C03089 /* Frameworks */,
+				59690B1E2F217E5B00C03089 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				59690B252F217E5B00C03089 /* PBXTargetDependency */,
+			);
+			name = BudgetBuddyTests;
+			packageProductDependencies = (
+			);
+			productName = BudgetBuddyTests;
+			productReference = 59690B202F217E5B00C03089 /* BudgetBuddyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -82,6 +121,10 @@
 				TargetAttributes = {
 					5962138E2F1FCA4000319AFE = {
 						CreatedOnToolsVersion = 26.0.1;
+					};
+					59690B1F2F217E5B00C03089 = {
+						CreatedOnToolsVersion = 26.0.1;
+						TestTargetID = 5962138E2F1FCA4000319AFE;
 					};
 				};
 			};
@@ -100,12 +143,20 @@
 			projectRoot = "";
 			targets = (
 				5962138E2F1FCA4000319AFE /* BudgetBuddy */,
+				59690B1F2F217E5B00C03089 /* BudgetBuddyTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		5962138D2F1FCA4000319AFE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		59690B1E2F217E5B00C03089 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -122,7 +173,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		59690B1C2F217E5B00C03089 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		59690B252F217E5B00C03089 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5962138E2F1FCA4000319AFE /* BudgetBuddy */;
+			targetProxy = 59690B242F217E5B00C03089 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		596213982F1FCA4100319AFE /* Debug */ = {
@@ -247,7 +313,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = K2F5H4NJCX;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -293,7 +359,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = K2F5H4NJCX;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -333,6 +399,53 @@
 			};
 			name = Release;
 		};
+		59690B262F217E5B00C03089 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = K2F5H4NJCX;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = be.vancoilliestudio.BudgetBuddyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BudgetBuddy.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BudgetBuddy";
+			};
+			name = Debug;
+		};
+		59690B272F217E5B00C03089 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = K2F5H4NJCX;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = be.vancoilliestudio.BudgetBuddyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BudgetBuddy.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BudgetBuddy";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -350,6 +463,15 @@
 			buildConfigurations = (
 				5962139B2F1FCA4100319AFE /* Debug */,
 				5962139C2F1FCA4100319AFE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		59690B282F217E5B00C03089 /* Build configuration list for PBXNativeTarget "BudgetBuddyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				59690B262F217E5B00C03089 /* Debug */,
+				59690B272F217E5B00C03089 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -101,13 +101,25 @@ struct BudgetOverviewView: View {
 
             monthSelector
 
-            Text(MoneyFormatter.format(netBalance, currencyCode: currencyCode))
-                .font(.system(size: 34, weight: .bold))
-                .foregroundStyle(netBalance >= 0 ? .green : .red)
+            VStack(spacing: 4) {
+                Text("Beschikbaar deze maand")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
 
-            HStack {
-                summaryItem("In", totalIncome, .green)
-                summaryItem("Uit", totalExpenses, .red)
+                Text(MoneyFormatter.format(netBalance, currencyCode: currencyCode))
+                    .font(.system(size: 36, weight: .bold))
+                    .foregroundStyle(netBalance >= 0 ? .green : .red)
+            }
+            .frame(maxWidth: .infinity)
+            .padding()
+            .background(
+                RoundedRectangle(cornerRadius: 16)
+                    .fill(Color(.secondarySystemBackground))
+            )
+
+            HStack(spacing: 12) {
+                summaryCard(title: "Inkomen", value: totalIncome, color: .green)
+                summaryCard(title: "Uitgaven", value: totalExpenses, color: .red)
             }
         }
         .padding(.vertical, 12)
@@ -116,21 +128,36 @@ struct BudgetOverviewView: View {
     // MARK: - Month selector
 
     private var monthSelector: some View {
-        HStack {
+        HStack(spacing: 12) {
             Button {
                 moveMonth(by: -1)
             } label: {
                 Image(systemName: "chevron.left")
                     .font(.headline)
-                    .padding(8)
-                    .contentShape(Rectangle())
+                    .frame(width: 36, height: 36)
+                    .background(
+                        Circle()
+                            .fill(Color(.tertiarySystemBackground))
+                    )
             }
             .buttonStyle(.plain)
 
             Spacer()
 
-            Text(currentMonth.formatted(.dateTime.month(.wide).year()))
-                .font(.headline)
+            VStack(spacing: 0) {
+                Text(currentMonth.formatted(.dateTime.month(.wide)))
+                    .font(.headline.bold())
+
+                Text(currentMonth.formatted(.dateTime.year()))
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+            }
+            .padding(.horizontal, 20)
+            .padding(.vertical, 8)
+            .background(
+                Capsule()
+                    .fill(Color(.secondarySystemBackground))
+            )
 
             Spacer()
 
@@ -139,8 +166,11 @@ struct BudgetOverviewView: View {
             } label: {
                 Image(systemName: "chevron.right")
                     .font(.headline)
-                    .padding(8)
-                    .contentShape(Rectangle())
+                    .frame(width: 36, height: 36)
+                    .background(
+                        Circle()
+                            .fill(Color(.tertiarySystemBackground))
+                    )
             }
             .buttonStyle(.plain)
         }
@@ -169,5 +199,23 @@ struct BudgetOverviewView: View {
                 .foregroundColor(color)
         }
         .frame(maxWidth: .infinity)
+    }
+
+    private func summaryCard(title: String, value: Decimal, color: Color) -> some View {
+        VStack(spacing: 6) {
+            Text(title)
+                .font(.caption)
+                .foregroundStyle(.secondary)
+
+            Text(MoneyFormatter.format(value, currencyCode: currencyCode))
+                .font(.headline)
+                .foregroundColor(color)
+        }
+        .frame(maxWidth: .infinity)
+        .padding()
+        .background(
+            RoundedRectangle(cornerRadius: 14)
+                .fill(Color(.secondarySystemBackground))
+        )
     }
 }

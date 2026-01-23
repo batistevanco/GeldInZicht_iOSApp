@@ -13,6 +13,8 @@ final class AppSettings {
     var currencyCode: String
     var languageCode: String
     var hasOnboardingCompleted: Bool
+    
+    
 
     init() {
         self.id = UUID()

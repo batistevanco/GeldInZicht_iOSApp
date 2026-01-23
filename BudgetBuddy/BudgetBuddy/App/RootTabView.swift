@@ -9,7 +9,7 @@ struct RootTabView: View {
                 BudgetOverviewView()
             }
             .tabItem {
-                Label("Budget", systemImage: "list.bullet.rectangle")
+                Label("IN/OUT", systemImage: "list.bullet.rectangle")
             }
 
             NavigationStack {
@@ -30,7 +30,7 @@ struct RootTabView: View {
                 HelpView()
             }
             .tabItem {
-                Label("Hulp", systemImage: "questionmark.circle")
+                Label("Help", systemImage: "questionmark.circle")
             }
         }
     }
