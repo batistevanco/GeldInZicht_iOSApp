@@ -14,7 +14,9 @@ final class AppSettings {
     var languageCode: String
     var hasOnboardingCompleted: Bool
     
-    
+    // Recurring transactions
+
+    // Data repair / migration versioning
 
     init() {
         self.id = UUID()

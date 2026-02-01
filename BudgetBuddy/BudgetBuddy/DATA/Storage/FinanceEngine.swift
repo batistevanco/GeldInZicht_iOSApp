@@ -62,26 +62,44 @@ enum FinanceEngine {
     ) -> [PeriodSummary] {
 
         let calendar = Calendar.current
+
+        // Keep only transactions that fall inside the requested calendar year
         let yearTransactions = transactions.filter {
             calendar.component(.year, from: $0.date) == year
         }
 
-        var buckets: [String: (income: Decimal, expense: Decimal)] = [:]
+        // Use sortable keys (Int/Double) instead of localized strings to avoid alphabetical sorting.
+        // Then derive the human-readable label from the key.
+        struct Bucket {
+            var label: String
+            var income: Decimal
+            var expense: Decimal
+        }
+
+        var buckets: [Int: Bucket] = [:]
 
         for tx in yearTransactions {
-            let key: String
+            let key: Int
+            let label: String
 
             switch period {
             case .month:
-                key = tx.date.formatted(.dateTime.month(.wide))
+                let month = calendar.component(.month, from: tx.date) // 1...12
+                key = month
+                // Month name in current locale (year is already implied by the selected year)
+                label = tx.date.formatted(.dateTime.month(.wide))
+
             case .week:
                 let week = calendar.component(.weekOfYear, from: tx.date)
-                key = "Week \(week)"
+                key = week
+                label = "Week \(week)"
+
             case .year:
-                key = String(year)
+                key = year
+                label = String(year)
             }
 
-            var current = buckets[key] ?? (0, 0)
+            var current = buckets[key] ?? Bucket(label: label, income: 0, expense: 0)
 
             if tx.type == .income {
                 current.income += tx.amount
@@ -92,15 +110,16 @@ enum FinanceEngine {
             buckets[key] = current
         }
 
-        return buckets.map { key, value in
-            PeriodSummary(
-                id: UUID(),
-                label: key,
-                income: value.income,
-                expense: value.expense
-            )
-        }
-        .sorted { $0.label < $1.label }
+        return buckets
+            .sorted { $0.key < $1.key }
+            .map { _, value in
+                PeriodSummary(
+                    id: UUID(),
+                    label: value.label,
+                    income: value.income,
+                    expense: value.expense
+                )
+            }
     }
 
     // MARK: - Net worth
@@ -175,21 +194,30 @@ enum FinanceEngine {
             let targetAccountID = settings.carryOverAccountID
         else { return }
 
-        // 2. Vorige maand bepalen
+        // 2. Bepaal vorige maand (start & einde) en start van de huidige maand
         guard
-            let previousMonth = calendar.date(byAdding: .month, value: -1, to: referenceDate),
-            let monthStart = calendar.date(from: calendar.dateComponents([.year, .month], from: previousMonth)),
-            let monthEnd = calendar.date(byAdding: DateComponents(month: 1, day: -1), to: monthStart)
+            let currentMonthStart = calendar.date(from: calendar.dateComponents([.year, .month], from: referenceDate)),
+            let previousMonthStart = calendar.date(byAdding: .month, value: -1, to: currentMonthStart),
+            let nextMonthStart = calendar.date(byAdding: .month, value: 1, to: previousMonthStart),
+            let previousMonthEnd = calendar.date(byAdding: .second, value: -1, to: nextMonthStart)
         else { return }
 
+        let monthStart = previousMonthStart
+        let monthEnd = previousMonthEnd
+
+        // We create the carry-over as an income on the first day of the current month.
+        let carryOverDate = currentMonthStart
+
         // 3. Check of carry-over al gebeurd is (duplicate preventie)
+        // NOTE: the carry-over transaction is created on `carryOverDate` (start of current month),
+        // so we must look for it in the current month, not in the previous month.
         let allTransactions = (try? context.fetch(FetchDescriptor<Transaction>())) ?? []
 
         let existing = allTransactions.first {
             $0.type == .income &&
             $0.descriptionText == "Saldo overgedragen vorige maand" &&
-            $0.date >= monthStart &&
-            $0.date <= monthEnd
+            calendar.isDate($0.date, inSameDayAs: carryOverDate) &&
+            $0.destinationAccount?.id == targetAccountID
         }
 
         if existing != nil { return }
@@ -220,7 +248,7 @@ enum FinanceEngine {
         let carryTx = Transaction(
             type: .income,
             amount: carryOverAmount,
-            date: calendar.date(byAdding: .day, value: 1, to: monthEnd) ?? referenceDate
+            date: carryOverDate
         )
 
         carryTx.destinationAccount = targetAccount

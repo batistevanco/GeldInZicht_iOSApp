@@ -187,6 +187,13 @@ struct AddEditTransactionView: View {
             } label: {
                 Label("Nieuwe categorie toevoegen", systemImage: "plus.circle")
             }
+
+            Picker("Rekening (komt bij)", selection: $destinationAccount) {
+                Text("Kies…").tag(Account?.none)
+                ForEach(accounts.filter { !$0.isArchived }) { a in
+                    Text(a.name).tag(Account?.some(a))
+                }
+            }
         }
     }
 
@@ -315,7 +322,7 @@ struct AddEditTransactionView: View {
         switch type {
         case .income:
             draft.category = selectedCategory
-            // GEEN rekening bij inkomen
+            draft.destinationAccount = destinationAccount
 
         case .expense:
             draft.category = selectedCategory
@@ -339,10 +346,6 @@ struct AddEditTransactionView: View {
         if !validationErrors.isEmpty {
             errors = validationErrors
             showErrorAlert = true
-
-            // SwiftData auto-insert fix
-            context.delete(draft)
-
             return   // ⛔️ STOP — nothing persists
         }
 

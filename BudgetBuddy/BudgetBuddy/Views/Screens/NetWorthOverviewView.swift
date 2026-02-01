@@ -5,7 +5,6 @@
 //  Created by Batiste Vancoillie on 20/01/2026.
 //
 
-
 // /Views/Screens/NetWorthOverviewView.swift
 
 import SwiftUI
@@ -25,22 +24,6 @@ struct NetWorthOverviewView: View {
             accounts: activeAccounts,
             transactions: transactions
         )
-    }
-
-    // MARK: - Projectie volgende maand
-
-    private var currentMonthNet: Decimal {
-        let now = Date()
-        let totals = FinanceEngine.totals(
-            for: transactions,
-            period: .month,
-            referenceDate: now
-        )
-        return totals.income - totals.expense
-    }
-
-    private var projectedNetWorth: Decimal {
-        total + currentMonthNet
     }
 
     private var slices: [DonutSlice] {
@@ -69,20 +52,6 @@ struct NetWorthOverviewView: View {
 
                         Text(MoneyFormatter.format(total, currencyCode: currencyCode))
                             .font(.system(size: 34, weight: .bold))
-                    }
-
-                    VStack(spacing: 4) {
-                        Text("Geschat vermogen volgende maand")
-                            .font(.caption)
-                            .foregroundStyle(.secondary)
-
-                        Text(MoneyFormatter.format(projectedNetWorth, currencyCode: currencyCode))
-                            .font(.system(size: 20, weight: .semibold))
-                            .foregroundColor(currentMonthNet >= 0 ? .green : .red)
-
-                        Text("Gebaseerd op het huidige maandsaldo")
-                            .font(.caption2)
-                            .foregroundStyle(.secondary)
                     }
                 }
                 .padding(.top, 10)
