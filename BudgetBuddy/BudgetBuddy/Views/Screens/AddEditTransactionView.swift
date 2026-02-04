@@ -301,6 +301,70 @@ struct AddEditTransactionView: View {
 
         let type = resolvedType()
 
+        // ✅ HARD GATE: nooit opslaan/inserten als verplichte velden ontbreken
+        let trimmedDescription = description.trimmingCharacters(in: .whitespacesAndNewlines)
+
+        // Bedrag
+        if amount <= 0 {
+            errors.append("Vul een bedrag groter dan 0 in.")
+        }
+
+        // Type-specifieke vereisten
+        switch type {
+        case .income:
+            if selectedCategory == nil {
+                errors.append("Kies een categorie.")
+            }
+            if destinationAccount == nil {
+                errors.append("Kies een rekening (komt bij).")
+            }
+
+        case .expense:
+            if selectedCategory == nil {
+                errors.append("Kies een categorie.")
+            }
+            if sourceAccount == nil {
+                errors.append("Kies een rekening (gaat af).")
+            }
+
+        case .transfer:
+            if sourceAccount == nil {
+                errors.append("Kies een bronrekening.")
+            }
+            if destinationAccount == nil {
+                errors.append("Kies een bestemmingsrekening.")
+            }
+            if let s = sourceAccount, let d = destinationAccount, s == d {
+                errors.append("Bron- en bestemmingsrekening moeten verschillend zijn.")
+            }
+
+        case .savingDeposit:
+            if selectedGoal == nil {
+                errors.append("Kies een spaarpot.")
+            }
+            if sourceAccount == nil {
+                errors.append("Kies een bronrekening.")
+            }
+
+        case .savingWithdrawal:
+            if selectedGoal == nil {
+                errors.append("Kies een spaarpot.")
+            }
+            if destinationAccount == nil {
+                errors.append("Kies een bestemmingsrekening.")
+            }
+        }
+
+        // Terugkerende transactie: frequentie moet ingevuld zijn
+        if isRecurringTemplate && frequency == .none {
+            errors.append("Kies een frequentie voor een terugkerende transactie.")
+        }
+
+        if !errors.isEmpty {
+            showErrorAlert = true
+            return
+        }
+
         // ❗ Draft object — nog NIET in SwiftData
         let draft = Transaction(
             type: type,
@@ -310,7 +374,7 @@ struct AddEditTransactionView: View {
             isRecurringTemplate: isRecurringTemplate
         )
 
-        draft.descriptionText = description.trimmingCharacters(in: .whitespacesAndNewlines)
+        draft.descriptionText = trimmedDescription
 
         // Reset relaties
         draft.category = nil
