@@ -22,7 +22,8 @@ enum PersistenceController {
 
         let config = ModelConfiguration(
             schema: schema,
-            isStoredInMemoryOnly: false
+            isStoredInMemoryOnly: false,
+            cloudKitDatabase: .automatic
         )
 
         do {

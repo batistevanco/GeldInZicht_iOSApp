@@ -6,32 +6,33 @@ struct RootTabView: View {
     var body: some View {
         TabView {
             NavigationStack {
-                BudgetOverviewView()
+                DashboardView()
             }
             .tabItem {
-                Label("IN/OUT", systemImage: "list.bullet.rectangle")
+                Label("Dashboard", systemImage: "house.fill")
+            }
+
+            NavigationStack {
+                TransactionsListView()
+            }
+            .tabItem {
+                Label("Transacties", systemImage: "list.bullet.rectangle")
             }
 
             NavigationStack {
                 AccountsOverviewView()
             }
             .tabItem {
-                Label("Accounts", systemImage: "creditcard")
+                Label("Rekeningen", systemImage: "creditcard.fill")
             }
 
             NavigationStack {
-                PeriodOverviewView()
+                MoreView()
             }
             .tabItem {
-                Label("Overzicht", systemImage: "chart.bar")
-            }
-
-            NavigationStack {
-                HelpView()
-            }
-            .tabItem {
-                Label("Help", systemImage: "questionmark.circle")
+                Label("Meer", systemImage: "ellipsis.circle.fill")
             }
         }
+        .tint(AppTheme.brand)
     }
 }

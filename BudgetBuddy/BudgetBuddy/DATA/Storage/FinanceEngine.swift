@@ -260,6 +260,102 @@ enum FinanceEngine {
         try? context.save()
     }
 
+    // MARK: - Insights
+
+    /// Recurring templates that will still fire between `referenceDate` and end of month,
+    /// and have NOT yet been generated for that date.
+    static func pendingRecurringThisMonth(
+        allTransactions: [Transaction],
+        referenceDate: Date = Date()
+    ) -> [Transaction] {
+        let cal = Calendar.current
+        let today = cal.startOfDay(for: referenceDate)
+
+        guard
+            let monthStart = cal.date(from: cal.dateComponents([.year, .month], from: referenceDate)),
+            let nextMonthStart = cal.date(byAdding: .month, value: 1, to: monthStart),
+            let monthEnd = cal.date(byAdding: .second, value: -1, to: nextMonthStart)
+        else { return [] }
+
+        let templates = allTransactions.filter { $0.isRecurringTemplate && $0.frequency != .none }
+        let generated = allTransactions.filter { !$0.isRecurringTemplate }
+
+        var pending: [Transaction] = []
+
+        for template in templates {
+            var cursor = cal.startOfDay(for: template.date)
+
+            // Advance cursor to first occurrence after today that falls within this month
+            while true {
+                guard let next = nextRecurringOccurrence(after: cursor, frequency: template.frequency) else { break }
+                cursor = next
+
+                if cursor > monthEnd { break }
+                if cursor <= today { continue }
+
+                // In this month and in the future — check if already generated
+                let exists = generated.contains {
+                    $0.templateId == template.id &&
+                    cal.isDate($0.date, inSameDayAs: cursor)
+                }
+
+                if !exists {
+                    pending.append(template)
+                }
+
+                // Only need first future occurrence per template this month
+                break
+            }
+        }
+
+        return pending
+    }
+
+    /// Projected end-of-month balance = current net + pending recurring income - pending recurring expenses
+    static func expectedEndBalance(
+        currentNet: Decimal,
+        allTransactions: [Transaction],
+        referenceDate: Date = Date()
+    ) -> Decimal {
+        let pending = pendingRecurringThisMonth(allTransactions: allTransactions, referenceDate: referenceDate)
+        let pendingIncome = pending.filter { $0.type == .income }.reduce(0) { $0 + $1.amount }
+        let pendingExpenses = pending.filter { $0.type == .expense }.reduce(0) { $0 + $1.amount }
+        return currentNet + pendingIncome - pendingExpenses
+    }
+
+    /// Net worth growth vs start of current month
+    static func netWorthGrowth(
+        accounts: [Account],
+        allTransactions: [Transaction],
+        referenceDate: Date = Date()
+    ) -> Decimal {
+        let cal = Calendar.current
+        guard let monthStart = cal.date(from: cal.dateComponents([.year, .month], from: referenceDate)) else { return 0 }
+
+        let currentNW = netWorth(accounts: accounts, transactions: allTransactions)
+
+        // Net worth at start of month = current - transactions that happened this month
+        let monthTx = allTransactions.filter { $0.date >= monthStart }
+        let monthIncome = monthTx.filter { $0.type == .income }.reduce(0) { $0 + $1.amount }
+        let monthExpenses = monthTx.filter { $0.type == .expense }.reduce(0) { $0 + $1.amount }
+        let startOfMonthNW = currentNW - monthIncome + monthExpenses
+
+        return currentNW - startOfMonthNW
+    }
+
+    private static func nextRecurringOccurrence(after date: Date, frequency: TransactionFrequency) -> Date? {
+        let cal = Calendar.current
+        switch frequency {
+        case .weekly:      return cal.date(byAdding: .weekOfYear, value: 1, to: date)
+        case .monthly:     return cal.date(byAdding: .month, value: 1, to: date)
+        case .quarterly:   return cal.date(byAdding: .month, value: 3, to: date)
+        case .fourMonthly: return cal.date(byAdding: .month, value: 4, to: date)
+        case .sixMonthly:  return cal.date(byAdding: .month, value: 6, to: date)
+        case .yearly:      return cal.date(byAdding: .year, value: 1, to: date)
+        case .none:        return nil
+        }
+    }
+
     // MARK: - Recalculate all
 
     static func recalculateAll(context: ModelContext) {
