@@ -14,7 +14,7 @@ struct AddEditSavingGoalView: View {
     @Environment(\.dismiss) private var dismiss
 
     @State private var name = ""
-    @State private var goalAmount: Decimal = 0
+    @State private var goalAmount: Double = 0
 
     var body: some View {
         NavigationStack {

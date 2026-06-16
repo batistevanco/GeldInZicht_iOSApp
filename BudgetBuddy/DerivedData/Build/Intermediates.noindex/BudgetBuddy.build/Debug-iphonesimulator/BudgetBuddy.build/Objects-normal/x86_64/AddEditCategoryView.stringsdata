@@ -1,0 +1,64 @@
+{
+  "source": "/Users/batistevancoillie/Documents/GitHub/GeldInZicht_iOSApp/BudgetBuddy/BudgetBuddy/Views/Screens/AddEditCategoryView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Nieuwe categorie",
+        "location": {
+          "startingColumn": 44,
+          "startingLine": 52
+        }
+      },
+      {
+        "comment": "",
+        "key": "Categorie bewerken",
+        "location": {
+          "startingColumn": 65,
+          "startingLine": 52
+        }
+      },
+      {
+        "comment": "",
+        "key": "Naam",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 34
+        }
+      },
+      {
+        "comment": "",
+        "key": "Icoon",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 39
+        }
+      },
+      {
+        "comment": "",
+        "key": "Bijv. Boodschappen",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 35
+        }
+      },
+      {
+        "comment": "",
+        "key": "Opslaan",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 56
+        }
+      },
+      {
+        "comment": "",
+        "key": "Annuleren",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 63
+        }
+      }
+    ]
+  },
+  "version": 1
+}

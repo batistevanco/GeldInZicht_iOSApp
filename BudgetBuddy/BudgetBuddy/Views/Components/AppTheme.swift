@@ -4,12 +4,12 @@ import SwiftUI
 
 enum AppTheme {
 
-    // 🔵 HOOFDKLEUR
-    static let brand = Color(red: 0.05, green: 0.36, blue: 0.95)
-    // Hex ≈ #0D5CF2
+    // ⚫️ HOOFDKLEUR
+    static let brand = Color(red: 0.10, green: 0.12, blue: 0.18)
+    // Hex ≈ #1A1F2E  (donker antraciet – past bij het zwarte thema)
 
-    // Secundair accent (optioneel)
-    static let accent = Color(red: 0.25, green: 0.55, blue: 0.98)
+    // Secundair accent
+    static let accent = Color(red: 0.22, green: 0.25, blue: 0.32)
 
     // Statuskleuren
     static let positive = Color.green

@@ -59,6 +59,12 @@ struct MoreView: View {
                 }
 
                 NavigationLink {
+                    DataManagementView()
+                } label: {
+                    moreRow(icon: "externaldrive.fill", color: Color(red: 0.4, green: 0.3, blue: 0.8), title: "Data")
+                }
+
+                NavigationLink {
                     HelpView()
                 } label: {
                     moreRow(icon: "questionmark.circle.fill", color: .blue, title: "Help")

@@ -24,19 +24,19 @@ struct BudgetOverviewView: View {
         }
     }
 
-    private var totalIncome: Decimal {
+    private var totalIncome: Double {
         monthTransactions
             .filter { $0.type == .income }
             .reduce(0) { $0 + $1.amount }
     }
 
-    private var totalExpenses: Decimal {
+    private var totalExpenses: Double {
         monthTransactions
             .filter { $0.type == .expense }
             .reduce(0) { $0 + $1.amount }
     }
 
-    private var netBalance: Decimal {
+    private var netBalance: Double {
         totalIncome - totalExpenses
     }
 
@@ -188,7 +188,7 @@ struct BudgetOverviewView: View {
 
     // MARK: - Helpers
 
-    private func summaryItem(_ title: String, _ value: Decimal, _ color: Color) -> some View {
+    private func summaryItem(_ title: String, _ value: Double, _ color: Color) -> some View {
         VStack {
             Text(title)
                 .font(.caption)
@@ -201,7 +201,7 @@ struct BudgetOverviewView: View {
         .frame(maxWidth: .infinity)
     }
 
-    private func summaryCard(title: String, value: Decimal, color: Color) -> some View {
+    private func summaryCard(title: String, value: Double, color: Color) -> some View {
         VStack(spacing: 6) {
             Text(title)
                 .font(.caption)

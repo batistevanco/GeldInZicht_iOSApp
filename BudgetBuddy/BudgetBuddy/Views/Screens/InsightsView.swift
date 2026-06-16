@@ -21,23 +21,23 @@ struct InsightsView: View {
         }
     }
 
-    private var totalIncome: Decimal {
+    private var totalIncome: Double {
         monthTransactions.filter { $0.type == .income }.reduce(0) { $0 + $1.amount }
     }
 
-    private var totalExpenses: Decimal {
+    private var totalExpenses: Double {
         monthTransactions.filter { $0.type == .expense }.reduce(0) { $0 + $1.amount }
     }
 
-    private var netBalance: Decimal { totalIncome - totalExpenses }
+    private var netBalance: Double { totalIncome - totalExpenses }
 
-    private var totalSaved: Decimal {
+    private var totalSaved: Double {
         monthTransactions.filter { $0.type == .savingDeposit }.reduce(0) { $0 + $1.amount }
     }
 
     // MARK: - Insights calculations
 
-    private var expectedEnd: Decimal {
+    private var expectedEnd: Double {
         FinanceEngine.expectedEndBalance(
             currentNet: netBalance,
             allTransactions: allTransactions,
@@ -56,11 +56,11 @@ struct InsightsView: View {
         pendingRecurring.filter { $0.type == .expense }
     }
 
-    private var pendingExpensesTotal: Decimal {
+    private var pendingExpensesTotal: Double {
         pendingExpenses.reduce(0) { $0 + $1.amount }
     }
 
-    private var previousMonthNet: Decimal {
+    private var previousMonthNet: Double {
         guard let prevMonth = cal.date(byAdding: .month, value: -1, to: currentMonth) else { return 0 }
         let prev = allTransactions.filter { cal.isDate($0.date, equalTo: prevMonth, toGranularity: .month) }
         let inc = prev.filter { $0.type == .income }.reduce(0) { $0 + $1.amount }
@@ -68,15 +68,15 @@ struct InsightsView: View {
         return inc - exp
     }
 
-    private var evolutionAmount: Decimal { netBalance - previousMonthNet }
+    private var evolutionAmount: Double { netBalance - previousMonthNet }
     private var evolutionPositive: Bool { evolutionAmount >= 0 }
 
-    private var biggestCategory: (name: String, icon: String, amount: Decimal, color: Color)? {
+    private var biggestCategory: (name: String, icon: String, amount: Double, color: Color)? {
         let expenses = monthTransactions.filter { $0.type == .expense && $0.category != nil }
-        var totals: [UUID: (name: String, icon: String, amount: Decimal, colorHex: String?)] = [:]
+        var totals: [UUID: (name: String, icon: String, amount: Double, colorHex: String?)] = [:]
         for tx in expenses {
             guard let cat = tx.category else { continue }
-            let current = totals[cat.id] ?? (cat.name, cat.iconName ?? "tag", 0, cat.colorHex)
+            let current = totals[cat.id] ?? (cat.name, cat.iconName, 0, cat.colorHex)
             totals[cat.id] = (current.name, current.icon, current.amount + tx.amount, current.colorHex)
         }
         guard let top = totals.values.max(by: { $0.amount < $1.amount }) else { return nil }
@@ -84,24 +84,24 @@ struct InsightsView: View {
         return (top.name, top.icon, top.amount, color)
     }
 
-    private var expensesByCategory: [(name: String, icon: String, amount: Decimal, color: Color, percent: Double)] {
+    private var expensesByCategory: [(name: String, icon: String, amount: Double, color: Color, percent: Double)] {
         let expenses = monthTransactions.filter { $0.type == .expense && $0.category != nil }
-        var totals: [UUID: (name: String, icon: String, amount: Decimal, colorHex: String?)] = [:]
+        var totals: [UUID: (name: String, icon: String, amount: Double, colorHex: String?)] = [:]
         for tx in expenses {
             guard let cat = tx.category else { continue }
-            let current = totals[cat.id] ?? (cat.name, cat.iconName ?? "tag", 0, cat.colorHex)
+            let current = totals[cat.id] ?? (cat.name, cat.iconName, 0, cat.colorHex)
             totals[cat.id] = (current.name, current.icon, current.amount + tx.amount, current.colorHex)
         }
         let sorted = totals.values.sorted { $0.amount > $1.amount }
         let total = sorted.reduce(0) { $0 + $1.amount }
         return sorted.map { item in
             let color = AppTheme.color(from: item.colorHex) ?? AppTheme.brand
-            let pct = total > 0 ? NSDecimalNumber(decimal: item.amount / total).doubleValue : 0
+            let pct = total > 0 ? item.amount / total : 0
             return (item.name, item.icon, item.amount, color, pct)
         }
     }
 
-    private var netWorthGrowth: Decimal {
+    private var netWorthGrowth: Double {
         FinanceEngine.netWorthGrowth(
             accounts: allAccounts.filter { !$0.isArchived },
             allTransactions: allTransactions,
@@ -109,7 +109,7 @@ struct InsightsView: View {
         )
     }
 
-    private var currentNetWorth: Decimal {
+    private var currentNetWorth: Double {
         FinanceEngine.netWorth(
             accounts: allAccounts.filter { !$0.isArchived },
             transactions: allTransactions
@@ -295,7 +295,7 @@ struct InsightsView: View {
                 .foregroundStyle(evolutionPositive ? .green : .red)
 
             if previousMonthNet != 0 {
-                let pct = NSDecimalNumber(decimal: abs(evolutionAmount / previousMonthNet) * 100).doubleValue
+                let pct = abs(evolutionAmount / previousMonthNet) * 100
                 Text(String(format: "%@%.0f%%", evolutionPositive ? "+" : "-", pct))
                     .font(.caption)
                     .foregroundStyle(.secondary)

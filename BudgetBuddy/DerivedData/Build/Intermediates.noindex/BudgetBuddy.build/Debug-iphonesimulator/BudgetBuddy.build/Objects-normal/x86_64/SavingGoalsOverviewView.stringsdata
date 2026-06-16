@@ -1,0 +1,40 @@
+{
+  "source": "/Users/batistevancoillie/Documents/GitHub/GeldInZicht_iOSApp/BudgetBuddy/BudgetBuddy/Views/Screens/SavingGoalsOverviewView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Spaardoelen",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 57
+        }
+      },
+      {
+        "comment": "",
+        "key": "Totaal gespaard",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 73
+        }
+      },
+      {
+        "comment": "",
+        "key": "Doel",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 82
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld van %lld voltooid",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 109
+        }
+      }
+    ]
+  },
+  "version": 1
+}

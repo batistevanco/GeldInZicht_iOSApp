@@ -1,0 +1,16 @@
+{
+  "source": "/Users/batistevancoillie/Documents/GitHub/GeldInZicht_iOSApp/BudgetBuddy/BudgetBuddy/Views/Components/AccountCardView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Inactief",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 50
+        }
+      }
+    ]
+  },
+  "version": 1
+}

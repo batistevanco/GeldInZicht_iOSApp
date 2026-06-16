@@ -5,26 +5,26 @@ import Foundation
 
 @Model
 final class Transaction {
-    var id: UUID
-    var templateId: UUID?            // used for recurring generated items
-    var type: TransactionType
-    var amount: Decimal
+    var id: UUID = UUID()
+    var templateId: UUID?
+    var type: TransactionType = TransactionType.expense
+    var amount: Double = 0.0
     var descriptionText: String?
-    var date: Date
-    var frequency: TransactionFrequency
-    var isRecurringTemplate: Bool
+    var date: Date = Date()
+    var frequency: TransactionFrequency = TransactionFrequency.none
+    var isRecurringTemplate: Bool = false
 
     var category: Category?
     var sourceAccount: Account?
     var destinationAccount: Account?
     var savingGoal: SavingGoal?
 
-    var createdAt: Date
-    var updatedAt: Date
+    var createdAt: Date = Date()
+    var updatedAt: Date = Date()
 
     init(
         type: TransactionType,
-        amount: Decimal,
+        amount: Double,
         date: Date = .now,
         frequency: TransactionFrequency = .none,
         isRecurringTemplate: Bool = false

@@ -1,0 +1,30 @@
+{
+  "/Users/batistevancoillie/Documents/GitHub/GeldInZicht_iOSApp/BudgetBuddy/BudgetBuddy/Views/Onboarding/OnboardingFlowView.swift" : {
+    "const-values" : "/Users/batistevancoillie/Documents/GitHub/GeldInZicht_iOSApp/BudgetBuddy/DerivedData/Build/Intermediates.noindex/BudgetBuddy.build/Debug-iphonesimulator/BudgetBuddy.build/Objects-normal/arm64/OnboardingFlowView.swiftconstvalues",
+    "dependencies" : "/Users/batistevancoillie/Documents/GitHub/GeldInZicht_iOSApp/BudgetBuddy/DerivedData/Build/Intermediates.noindex/BudgetBuddy.build/Debug-iphonesimulator/BudgetBuddy.build/Objects-normal/arm64/OnboardingFlowView.d",
+    "diagnostics" : "/Users/batistevancoillie/Documents/GitHub/GeldInZicht_iOSApp/BudgetBuddy/DerivedData/Build/Intermediates.noindex/BudgetBuddy.build/Debug-iphonesimulator/BudgetBuddy.build/Objects-normal/arm64/OnboardingFlowView.dia",
+    "object" : "/Users/batistevancoillie/Documents/GitHub/GeldInZicht_iOSApp/BudgetBuddy/DerivedData/Build/Intermediates.noindex/BudgetBuddy.build/Debug-iphonesimulator/BudgetBuddy.build/Objects-normal/arm64/OnboardingFlowView.o",
+    "swift-dependencies" : "/Users/batistevancoillie/Documents/GitHub/GeldInZicht_iOSApp/BudgetBuddy/DerivedData/Build/Intermediates.noindex/BudgetBuddy.build/Debug-iphonesimulator/BudgetBuddy.build/Objects-normal/arm64/OnboardingFlowView.swiftdeps"
+  },
+  "/Users/batistevancoillie/Documents/GitHub/GeldInZicht_iOSApp/BudgetBuddy/BudgetBuddy/Views/Screens/AccountDetailView.swift" : {
+    "const-values" : "/Users/batistevancoillie/Documents/GitHub/GeldInZicht_iOSApp/BudgetBuddy/DerivedData/Build/Intermediates.noindex/BudgetBuddy.build/Debug-iphonesimulator/BudgetBuddy.build/Objects-normal/arm64/AccountDetailView.swiftconstvalues",
+    "dependencies" : "/Users/batistevancoillie/Documents/GitHub/GeldInZicht_iOSApp/BudgetBuddy/DerivedData/Build/Intermediates.noindex/BudgetBuddy.build/Debug-iphonesimulator/BudgetBuddy.build/Objects-normal/arm64/AccountDetailView.d",
+    "diagnostics" : "/Users/batistevancoillie/Documents/GitHub/GeldInZicht_iOSApp/BudgetBuddy/DerivedData/Build/Intermediates.noindex/BudgetBuddy.build/Debug-iphonesimulator/BudgetBuddy.build/Objects-normal/arm64/AccountDetailView.dia",
+    "object" : "/Users/batistevancoillie/Documents/GitHub/GeldInZicht_iOSApp/BudgetBuddy/DerivedData/Build/Intermediates.noindex/BudgetBuddy.build/Debug-iphonesimulator/BudgetBuddy.build/Objects-normal/arm64/AccountDetailView.o",
+    "swift-dependencies" : "/Users/batistevancoillie/Documents/GitHub/GeldInZicht_iOSApp/BudgetBuddy/DerivedData/Build/Intermediates.noindex/BudgetBuddy.build/Debug-iphonesimulator/BudgetBuddy.build/Objects-normal/arm64/AccountDetailView.swiftdeps"
+  },
+  "/Users/batistevancoillie/Documents/GitHub/GeldInZicht_iOSApp/BudgetBuddy/BudgetBuddy/Views/Screens/AccountsOverviewView.swift" : {
+    "const-values" : "/Users/batistevancoillie/Documents/GitHub/GeldInZicht_iOSApp/BudgetBuddy/DerivedData/Build/Intermediates.noindex/BudgetBuddy.build/Debug-iphonesimulator/BudgetBuddy.build/Objects-normal/arm64/AccountsOverviewView.swiftconstvalues",
+    "dependencies" : "/Users/batistevancoillie/Documents/GitHub/GeldInZicht_iOSApp/BudgetBuddy/DerivedData/Build/Intermediates.noindex/BudgetBuddy.build/Debug-iphonesimulator/BudgetBuddy.build/Objects-normal/arm64/AccountsOverviewView.d",
+    "diagnostics" : "/Users/batistevancoillie/Documents/GitHub/GeldInZicht_iOSApp/BudgetBuddy/DerivedData/Build/Intermediates.noindex/BudgetBuddy.build/Debug-iphonesimulator/BudgetBuddy.build/Objects-normal/arm64/AccountsOverviewView.dia",
+    "object" : "/Users/batistevancoillie/Documents/GitHub/GeldInZicht_iOSApp/BudgetBuddy/DerivedData/Build/Intermediates.noindex/BudgetBuddy.build/Debug-iphonesimulator/BudgetBuddy.build/Objects-normal/arm64/AccountsOverviewView.o",
+    "swift-dependencies" : "/Users/batistevancoillie/Documents/GitHub/GeldInZicht_iOSApp/BudgetBuddy/DerivedData/Build/Intermediates.noindex/BudgetBuddy.build/Debug-iphonesimulator/BudgetBuddy.build/Objects-normal/arm64/AccountsOverviewView.swiftdeps"
+  },
+  "/Users/batistevancoillie/Documents/GitHub/GeldInZicht_iOSApp/BudgetBuddy/BudgetBuddy/Views/Screens/AddEditAccountView.swift" : {
+    "const-values" : "/Users/batistevancoillie/Documents/GitHub/GeldInZicht_iOSApp/BudgetBuddy/DerivedData/Build/Intermediates.noindex/BudgetBuddy.build/Debug-iphonesimulator/BudgetBuddy.build/Objects-normal/arm64/AddEditAccountView.swiftconstvalues",
+    "dependencies" : "/Users/batistevancoillie/Documents/GitHub/GeldInZicht_iOSApp/BudgetBuddy/DerivedData/Build/Intermediates.noindex/BudgetBuddy.build/Debug-iphonesimulator/BudgetBuddy.build/Objects-normal/arm64/AddEditAccountView.d",
+    "diagnostics" : "/Users/batistevancoillie/Documents/GitHub/GeldInZicht_iOSApp/BudgetBuddy/DerivedData/Build/Intermediates.noindex/BudgetBuddy.build/Debug-iphonesimulator/BudgetBuddy.build/Objects-normal/arm64/AddEditAccountView.dia",
+    "object" : "/Users/batistevancoillie/Documents/GitHub/GeldInZicht_iOSApp/BudgetBuddy/DerivedData/Build/Intermediates.noindex/BudgetBuddy.build/Debug-iphonesimulator/BudgetBuddy.build/Objects-normal/arm64/AddEditAccountView.o",
+    "swift-dependencies" : "/Users/batistevancoillie/Documents/GitHub/GeldInZicht_iOSApp/BudgetBuddy/DerivedData/Build/Intermediates.noindex/BudgetBuddy.build/Debug-iphonesimulator/BudgetBuddy.build/Objects-normal/arm64/AddEditAccountView.swiftdeps"
+  }
+}

@@ -8,6 +8,10 @@ struct BudgetBuddyApp: App {
 
     let container = PersistenceController.makeContainer()
 
+    init() {
+        UIScrollView.appearance().keyboardDismissMode = .onDrag
+    }
+
     var body: some Scene {
         WindowGroup {
             ContentView()

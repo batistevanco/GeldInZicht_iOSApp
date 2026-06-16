@@ -113,14 +113,6 @@ Dit is handig als je je saldo effectief wil laten doorlopen op een specifieke re
                 }
             }
 
-            // MARK: - Developer / Demo
-            Section(header: FormSectionHeader(title: "Demo")) {
-                Button(role: .destructive) {
-                    MockData.seed(context: context)
-                } label: {
-                    Label("Mockdata laden", systemImage: "wand.and.stars")
-                }
-            }
         }
         .navigationTitle("Instellingen")
         .navigationBarTitleDisplayMode(.inline)

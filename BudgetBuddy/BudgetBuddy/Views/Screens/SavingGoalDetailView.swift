@@ -26,7 +26,7 @@ struct SavingGoalDetailView: View {
         AppTheme.color(from: goal.colorHex) ?? AppTheme.brand
     }
 
-    private var remaining: Decimal { max(0, goal.goalAmount - goal.currentAmount) }
+    private var remaining: Double { max(0, goal.goalAmount - goal.currentAmount) }
     private var isCompleted: Bool { goal.progress >= 1 }
 
     var body: some View {

@@ -5,11 +5,11 @@ import Foundation
 
 @Model
 final class Category {
-    var id: UUID
-    var name: String
-    var iconName: String
+    var id: UUID = UUID()
+    var name: String = ""
+    var iconName: String = "tag"
     var colorHex: String?
-    var isDefault: Bool
+    var isDefault: Bool = true
 
     init(name: String, iconName: String, isDefault: Bool = true) {
         self.id = UUID()

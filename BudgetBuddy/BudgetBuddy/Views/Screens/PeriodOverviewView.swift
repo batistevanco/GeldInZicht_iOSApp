@@ -85,8 +85,8 @@ struct PeriodOverviewView: View {
                                     items: [
                                         BarChartItem(
                                             label: "",
-                                            income: NSDecimalNumber(decimal: row.income).doubleValue,
-                                            expense: NSDecimalNumber(decimal: row.expense).doubleValue
+                                            income: row.income,
+                                            expense: row.expense
                                         )
                                     ]
                                 )

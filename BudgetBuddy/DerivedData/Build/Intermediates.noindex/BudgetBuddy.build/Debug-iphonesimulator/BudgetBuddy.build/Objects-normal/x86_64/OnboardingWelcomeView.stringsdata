@@ -1,0 +1,40 @@
+{
+  "source": "/Users/batistevancoillie/Documents/GitHub/GeldInZicht_iOSApp/BudgetBuddy/BudgetBuddy/Views/Onboarding/OnboardingWelcomeView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "GELD IN ZICHT.",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 28
+        }
+      },
+      {
+        "comment": "",
+        "key": "Financiële vrijheid",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 47
+        }
+      },
+      {
+        "comment": "",
+        "key": "Beheer je rekeningen, volg uitgaven op en bouw spaardoelen — alles op één plek.",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 51
+        }
+      },
+      {
+        "comment": "",
+        "key": "Aan de slag",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 74
+        }
+      }
+    ]
+  },
+  "version": 1
+}

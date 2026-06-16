@@ -21,9 +21,9 @@ struct YearOverviewView: View {
         let id = UUID()
         let month: Int
         let label: String
-        let income: Decimal
-        let expense: Decimal
-        var net: Decimal { income - expense }
+        let income: Double
+        let expense: Double
+        var net: Double { income - expense }
     }
 
     private var monthlyData: [MonthData] {
@@ -41,15 +41,12 @@ struct YearOverviewView: View {
         }
     }
 
-    private var annualIncome: Decimal { monthlyData.reduce(0) { $0 + $1.income } }
-    private var annualExpense: Decimal { monthlyData.reduce(0) { $0 + $1.expense } }
-    private var annualNet: Decimal { annualIncome - annualExpense }
+    private var annualIncome: Double { monthlyData.reduce(0) { $0 + $1.income } }
+    private var annualExpense: Double { monthlyData.reduce(0) { $0 + $1.expense } }
+    private var annualNet: Double { annualIncome - annualExpense }
 
     private var maxValue: Double {
-        monthlyData.flatMap { [
-            NSDecimalNumber(decimal: $0.income).doubleValue,
-            NSDecimalNumber(decimal: $0.expense).doubleValue
-        ]}.max() ?? 1
+        monthlyData.flatMap { [$0.income, $0.expense] }.max() ?? 1
     }
 
     private var selectedMonthData: MonthData? {
@@ -135,7 +132,7 @@ struct YearOverviewView: View {
         .background(RoundedRectangle(cornerRadius: 16).fill(AppTheme.cardBg))
     }
 
-    private func annualStat(_ label: String, value: Decimal, color: Color) -> some View {
+    private func annualStat(_ label: String, value: Double, color: Color) -> some View {
         VStack(spacing: 4) {
             Text(label)
                 .font(.caption)
@@ -184,8 +181,8 @@ struct YearOverviewView: View {
 
     private func monthBar(_ data: MonthData) -> some View {
         let isSelected = selectedMonth == data.month
-        let incH = maxValue > 0 ? NSDecimalNumber(decimal: data.income).doubleValue / maxValue : 0
-        let expH = maxValue > 0 ? NSDecimalNumber(decimal: data.expense).doubleValue / maxValue : 0
+        let incH = maxValue > 0 ? data.income / maxValue : 0
+        let expH = maxValue > 0 ? data.expense / maxValue : 0
         let chartH: Double = 110
 
         return VStack(spacing: 2) {
@@ -264,7 +261,7 @@ struct YearOverviewView: View {
         }
     }
 
-    private func monthStatCard(_ label: String, value: Decimal, color: Color) -> some View {
+    private func monthStatCard(_ label: String, value: Double, color: Color) -> some View {
         VStack(alignment: .leading, spacing: 4) {
             Text(label).font(.caption).foregroundStyle(.secondary)
             Text(MoneyFormatter.format(value, currencyCode: currencyCode))

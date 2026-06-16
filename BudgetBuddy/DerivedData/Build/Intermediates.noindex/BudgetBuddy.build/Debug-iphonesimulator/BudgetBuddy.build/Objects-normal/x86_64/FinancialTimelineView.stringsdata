@@ -1,0 +1,16 @@
+{
+  "source": "/Users/batistevancoillie/Documents/GitHub/GeldInZicht_iOSApp/BudgetBuddy/BudgetBuddy/Views/Screens/FinancialTimelineView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Tijdlijn",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 90
+        }
+      }
+    ]
+  },
+  "version": 1
+}

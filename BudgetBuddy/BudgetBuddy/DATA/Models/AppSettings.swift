@@ -5,14 +5,14 @@ import Foundation
 
 @Model
 final class AppSettings {
-    var id: UUID
-    var carryOverBalance: Bool
-    var carryOverToAccount: Bool
+    var id: UUID = UUID()
+    var carryOverBalance: Bool = true
+    var carryOverToAccount: Bool = false
     var carryOverAccountID: UUID?
-    var preferredPeriodView: PeriodType
-    var currencyCode: String
-    var languageCode: String
-    var hasOnboardingCompleted: Bool
+    var preferredPeriodView: PeriodType = PeriodType.month
+    var currencyCode: String = "EUR"
+    var languageCode: String = "nl"
+    var hasOnboardingCompleted: Bool = false
     
     // Recurring transactions
 

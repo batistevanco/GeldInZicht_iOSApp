@@ -1,0 +1,16 @@
+{
+  "source": "/Users/batistevancoillie/Documents/GitHub/GeldInZicht_iOSApp/BudgetBuddy/BudgetBuddy/Views/Components/FloatingActionButton.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Nieuwe transactie",
+        "location": {
+          "startingColumn": 29,
+          "startingLine": 27
+        }
+      }
+    ]
+  },
+  "version": 1
+}

@@ -12,7 +12,7 @@ struct AddEditAccountView: View {
 
     @State private var name: String = ""
     @State private var type: AccountType = .checking
-    @State private var initial: Decimal = 0
+    @State private var initial: Double = 0
     @State private var iconName: String = "creditcard.fill"
     @State private var colorHex: String = "#3B82F6" // default blue
 

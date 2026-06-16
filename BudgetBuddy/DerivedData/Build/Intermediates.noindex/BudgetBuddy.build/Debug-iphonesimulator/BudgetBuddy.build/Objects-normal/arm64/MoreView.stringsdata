@@ -1,0 +1,40 @@
+{
+  "source": "/Users/batistevancoillie/Documents/GitHub/GeldInZicht_iOSApp/BudgetBuddy/BudgetBuddy/Views/Screens/MoreView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Meer",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 74
+        }
+      },
+      {
+        "comment": "",
+        "key": "Inzichten",
+        "location": {
+          "startingColumn": 21,
+          "startingLine": 8
+        }
+      },
+      {
+        "comment": "",
+        "key": "Plannen",
+        "location": {
+          "startingColumn": 21,
+          "startingLine": 34
+        }
+      },
+      {
+        "comment": "",
+        "key": "Beheer",
+        "location": {
+          "startingColumn": 21,
+          "startingLine": 48
+        }
+      }
+    ]
+  },
+  "version": 1
+}

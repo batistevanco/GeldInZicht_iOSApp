@@ -1,0 +1,72 @@
+{
+  "source": "/Users/batistevancoillie/Documents/GitHub/GeldInZicht_iOSApp/BudgetBuddy/BudgetBuddy/Views/Screens/SettingsView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Instellingen",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 117
+        }
+      },
+      {
+        "comment": "",
+        "key": "Wanneer deze optie is ingeschakeld, wordt het eindsaldo van de vorige maand automatisch meegenomen als startsaldo van de volgende maand.\n\nVoorbeeld:\n• Je eindigt januari met +€250\n• Februari start dan automatisch met +€250\n\nAls je deze optie uitschakelt, begint elke nieuwe maand opnieuw vanaf €0, ongeacht het saldo van de vorige maand.",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 47
+        }
+      },
+      {
+        "comment": "",
+        "key": "Wanneer deze optie is ingeschakeld, wordt het eindsaldo van de maand automatisch als storting toegevoegd aan de gekozen rekening.\n\nVoorbeeld:\n• Januari eindigt met +€250\n• Op het einde van de maand wordt automatisch een storting van €250 toegevoegd aan de geselecteerde rekening\n• Februari start met €0, maar de rekening bevat wel het overgedragen bedrag\n\nDit is handig als je je saldo effectief wil laten doorlopen op een specifieke rekening, zoals je zichtrekening.",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 93
+        }
+      },
+      {
+        "comment": "",
+        "key": "Saldo overzetten",
+        "location": {
+          "startingColumn": 21,
+          "startingLine": 37
+        }
+      },
+      {
+        "comment": "",
+        "key": "Saldo automatisch op rekening plaatsen",
+        "location": {
+          "startingColumn": 25,
+          "startingLine": 62
+        }
+      },
+      {
+        "comment": "",
+        "key": "Rekening voor overdracht",
+        "location": {
+          "startingColumn": 29,
+          "startingLine": 75
+        }
+      },
+      {
+        "comment": "",
+        "key": "Kies een rekening",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 86
+        }
+      },
+      {
+        "comment": "",
+        "key": "Categorieën beheren",
+        "location": {
+          "startingColumn": 32,
+          "startingLine": 111
+        }
+      }
+    ]
+  },
+  "version": 1
+}

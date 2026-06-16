@@ -108,7 +108,7 @@ struct TransactionRowView: View {
 }
 
 private extension Transaction {
-    var amountSignedForUI: Decimal {
+    var amountSignedForUI: Double {
         switch type {
         case .income: return amount
         case .expense: return -amount

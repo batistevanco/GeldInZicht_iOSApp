@@ -20,14 +20,24 @@ enum PersistenceController {
             AppSettings.self
         ])
 
-        let config = ModelConfiguration(
+        // Probeer eerst met CloudKit sync
+        let cloudConfig = ModelConfiguration(
             schema: schema,
             isStoredInMemoryOnly: false,
             cloudKitDatabase: .automatic
         )
+        if let container = try? ModelContainer(for: schema, configurations: [cloudConfig]) {
+            return container
+        }
 
+        // Fallback: lokale opslag zonder CloudKit (bv. simulator zonder iCloud)
+        let localConfig = ModelConfiguration(
+            schema: schema,
+            isStoredInMemoryOnly: false,
+            cloudKitDatabase: .none
+        )
         do {
-            return try ModelContainer(for: schema, configurations: [config])
+            return try ModelContainer(for: schema, configurations: [localConfig])
         } catch {
             fatalError("❌ SwiftData container failed to initialize: \(error)")
         }

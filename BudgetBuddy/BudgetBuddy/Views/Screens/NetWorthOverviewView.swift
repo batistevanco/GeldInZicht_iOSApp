@@ -19,7 +19,7 @@ struct NetWorthOverviewView: View {
 
     private var activeAccounts: [Account] { accounts.filter { !$0.isArchived } }
 
-    private var total: Decimal {
+    private var total: Double {
         FinanceEngine.netWorth(
             accounts: activeAccounts,
             transactions: transactions
@@ -34,7 +34,7 @@ struct NetWorthOverviewView: View {
 
             return DonutSlice(
                 label: acc.name,
-                value: max(0, NSDecimalNumber(decimal: balance).doubleValue),
+                value: max(0, balance),
                 color: colors[idx % colors.count]
             )
         }

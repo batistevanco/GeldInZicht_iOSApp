@@ -1,0 +1,48 @@
+{
+  "source": "/Users/batistevancoillie/Documents/GitHub/GeldInZicht_iOSApp/BudgetBuddy/BudgetBuddy/Views/Screens/AccountDetailView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Nog geen transacties voor deze rekening.",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 87
+        }
+      },
+      {
+        "comment": "",
+        "key": "Bewerken",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 110
+        }
+      },
+      {
+        "comment": "",
+        "key": "VISA",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 201
+        }
+      },
+      {
+        "comment": "",
+        "key": "Standaard",
+        "location": {
+          "startingColumn": 58,
+          "startingLine": 212
+        }
+      },
+      {
+        "comment": "",
+        "key": "Maak standaard",
+        "location": {
+          "startingColumn": 72,
+          "startingLine": 212
+        }
+      }
+    ]
+  },
+  "version": 1
+}

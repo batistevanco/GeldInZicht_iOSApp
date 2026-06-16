@@ -1,0 +1,232 @@
+{
+  "source": "/Users/batistevancoillie/Documents/GitHub/GeldInZicht_iOSApp/BudgetBuddy/BudgetBuddy/Views/Screens/HelpView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Hulp",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 152
+        }
+      },
+      {
+        "comment": "",
+        "key": "Welkom",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 11
+        }
+      },
+      {
+        "comment": "",
+        "key": "Hoe werkt de app?",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 16
+        }
+      },
+      {
+        "comment": "",
+        "key": "Instellingen",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 112
+        }
+      },
+      {
+        "comment": "",
+        "key": "Privacy",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 119
+        }
+      },
+      {
+        "comment": "",
+        "key": "App info",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 129
+        }
+      },
+      {
+        "comment": "",
+        "key": "Met deze app beheer je je budget, rekeningen en spaarpotjes.",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 12
+        }
+      },
+      {
+        "comment": "",
+        "key": "Volledige uitleg bekijken",
+        "location": {
+          "startingColumn": 21,
+          "startingLine": 18
+        }
+      },
+      {
+        "comment": "",
+        "key": "Overzicht",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 24
+        }
+      },
+      {
+        "comment": "",
+        "key": "Deze app helpt je om inzicht te krijgen in je geld. Je kan inkomsten en uitgaven registreren, geld verdelen over rekeningen en spaarpotjes, en overzichten bekijken per week, maand of jaar.",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 27
+        }
+      },
+      {
+        "comment": "",
+        "key": "Resterende functies",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 33
+        }
+      },
+      {
+        "comment": "",
+        "key": "• Inkomsten en uitgaven toevoegen\n• Terugkerende transacties instellen\n• Meerdere rekeningen beheren\n• Spaarpotjes gebruiken voor doelen\n• Overboeken tussen rekeningen\n• Net worth (totaal vermogen) bekijken",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 36
+        }
+      },
+      {
+        "comment": "",
+        "key": "Transacties beheren",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 47
+        }
+      },
+      {
+        "comment": "",
+        "key": "• Tik op de + knop om een nieuwe transactie toe te voegen\n• Tik op een transactie om details te bekijken\n• Gebruik 'Bewerken' om een transactie aan te passen\n• Swipe een transactie (indien beschikbaar) om te verwijderen",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 50
+        }
+      },
+      {
+        "comment": "",
+        "key": "Rekeningen",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 59
+        }
+      },
+      {
+        "comment": "",
+        "key": "• Maak meerdere rekeningen aan (zichtrekening, spaarrekening, cash, …)\n• Elke rekening heeft een startsaldo\n• Swipe een rekening naar links om deze te verwijderen\n• Verwijderde rekeningen verdwijnen volledig uit de app",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 62
+        }
+      },
+      {
+        "comment": "",
+        "key": "Spaarpotjes",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 71
+        }
+      },
+      {
+        "comment": "",
+        "key": "• Gebruik spaarpotjes voor specifieke doelen (bv. vakantie, buffer)\n                            • Je kan geld storten of opnemen vanuit een spaarpot\n• Swipe een spaarpotje naar links om het te verwijderen",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 74
+        }
+      },
+      {
+        "comment": "",
+        "key": "Categorieën",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 82
+        }
+      },
+      {
+        "comment": "",
+        "key": "• Standaardcategorieën zijn vast en kunnen niet worden verwijderd\n• Eigen categorieën kan je zelf aanmaken\n• Om een categorie te verwijderen:\n  1. Ga naar Instellingen\n  2. Kies 'Mijn categorieën beheren'\n  3. Swipe de categorie naar links\n  4. Tik op 'Verwijder'",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 85
+        }
+      },
+      {
+        "comment": "",
+        "key": "Gegevens & privacy",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 97
+        }
+      },
+      {
+        "comment": "",
+        "key": "• Alle gegevens blijven lokaal op je toestel\n• Er is geen account en geen cloud\n• Verwijder je de app, dan verdwijnen alle gegevens",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 100
+        }
+      },
+      {
+        "comment": "",
+        "key": "Instellingen",
+        "location": {
+          "startingColumn": 32,
+          "startingLine": 113
+        }
+      },
+      {
+        "comment": "",
+        "key": "Privacybeleid URL ongeldig",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 123
+        }
+      },
+      {
+        "comment": "",
+        "key": "Bekijk privacybeleid",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 121
+        }
+      },
+      {
+        "comment": "",
+        "key": "Versie",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 131
+        }
+      },
+      {
+        "comment": "",
+        "key": "Build",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 138
+        }
+      },
+      {
+        "comment": "",
+        "key": "Offline • Geen account • Privacyvriendelijk",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 147
+        }
+      }
+    ]
+  },
+  "version": 1
+}

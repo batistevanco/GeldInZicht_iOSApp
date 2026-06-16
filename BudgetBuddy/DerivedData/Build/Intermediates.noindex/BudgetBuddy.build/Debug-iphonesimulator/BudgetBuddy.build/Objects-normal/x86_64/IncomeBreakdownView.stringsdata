@@ -1,0 +1,24 @@
+{
+  "source": "/Users/batistevancoillie/Documents/GitHub/GeldInZicht_iOSApp/BudgetBuddy/BudgetBuddy/Views/Screens/IncomeBreakdownView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Inkomsten",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 61
+        }
+      },
+      {
+        "comment": "",
+        "key": "Totaal inkomsten",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 43
+        }
+      }
+    ]
+  },
+  "version": 1
+}

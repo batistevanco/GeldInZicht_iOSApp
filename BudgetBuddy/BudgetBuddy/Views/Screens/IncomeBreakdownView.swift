@@ -22,8 +22,8 @@ struct IncomeBreakdownView: View {
         transactions.filter { $0.type == .income && $0.isRecurringTemplate == false }
     }
 
-    private var total: Decimal {
-        incomeTxs.reduce(0 as Decimal) { $0 + $1.amount }
+    private var total: Double {
+        incomeTxs.reduce(0.0) { $0 + $1.amount }
     }
 
     private var slices: [DonutSlice] {
@@ -31,7 +31,7 @@ struct IncomeBreakdownView: View {
         let colors: [Color] = [.purple, .mint, .blue, .orange, .pink, .teal, .indigo, .yellow]
 
         return grouped.keys.sorted().enumerated().map { idx, key in
-            let sum = grouped[key]!.reduce(0.0) { $0 + NSDecimalNumber(decimal: $1.amount).doubleValue }
+            let sum = grouped[key]!.reduce(0.0) { $0 + $1.amount }
             return DonutSlice(label: key, value: sum, color: colors[idx % colors.count])
         }
     }

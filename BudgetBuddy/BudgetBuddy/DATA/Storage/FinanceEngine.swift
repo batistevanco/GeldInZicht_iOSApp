@@ -11,7 +11,7 @@ enum FinanceEngine {
         for transactions: [Transaction],
         period: PeriodType,
         referenceDate: Date
-    ) -> (income: Decimal, expense: Decimal) {
+    ) -> (income: Double, expense: Double) {
 
         let filtered = filteredTransactions(
             transactions,
@@ -72,8 +72,8 @@ enum FinanceEngine {
         // Then derive the human-readable label from the key.
         struct Bucket {
             var label: String
-            var income: Decimal
-            var expense: Decimal
+            var income: Double
+            var expense: Double
         }
 
         var buckets: [Int: Bucket] = [:]
@@ -127,7 +127,7 @@ enum FinanceEngine {
     static func netWorth(
         accounts: [Account],
         transactions: [Transaction]
-    ) -> Decimal {
+    ) -> Double {
 
         accounts
             .filter { !$0.isArchived }
@@ -139,7 +139,7 @@ enum FinanceEngine {
     static func accountBalance(
         _ account: Account,
         transactions: [Transaction]
-    ) -> Decimal {
+    ) -> Double {
 
         var balance = account.initialBalance
 
@@ -313,10 +313,10 @@ enum FinanceEngine {
 
     /// Projected end-of-month balance = current net + pending recurring income - pending recurring expenses
     static func expectedEndBalance(
-        currentNet: Decimal,
+        currentNet: Double,
         allTransactions: [Transaction],
         referenceDate: Date = Date()
-    ) -> Decimal {
+    ) -> Double {
         let pending = pendingRecurringThisMonth(allTransactions: allTransactions, referenceDate: referenceDate)
         let pendingIncome = pending.filter { $0.type == .income }.reduce(0) { $0 + $1.amount }
         let pendingExpenses = pending.filter { $0.type == .expense }.reduce(0) { $0 + $1.amount }
@@ -328,7 +328,7 @@ enum FinanceEngine {
         accounts: [Account],
         allTransactions: [Transaction],
         referenceDate: Date = Date()
-    ) -> Decimal {
+    ) -> Double {
         let cal = Calendar.current
         guard let monthStart = cal.date(from: cal.dateComponents([.year, .month], from: referenceDate)) else { return 0 }
 
@@ -382,10 +382,10 @@ enum FinanceEngine {
 struct PeriodSummary: Identifiable {
     let id: UUID
     let label: String
-    let income: Decimal
-    let expense: Decimal
+    let income: Double
+    let expense: Double
 
-    var net: Decimal {
+    var net: Double {
         income - expense
     }
 }

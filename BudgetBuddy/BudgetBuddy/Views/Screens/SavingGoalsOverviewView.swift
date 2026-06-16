@@ -13,11 +13,11 @@ struct SavingGoalsOverviewView: View {
     private var activeGoals: [SavingGoal] { goals.filter { !$0.isArchived } }
     private var completedGoals: [SavingGoal] { goals.filter { !$0.isArchived && $0.progress >= 1 } }
 
-    private var totalSaved: Decimal { activeGoals.reduce(0) { $0 + $1.currentAmount } }
-    private var totalTarget: Decimal { activeGoals.reduce(0) { $0 + $1.goalAmount } }
+    private var totalSaved: Double { activeGoals.reduce(0) { $0 + $1.currentAmount } }
+    private var totalTarget: Double { activeGoals.reduce(0) { $0 + $1.goalAmount } }
     private var overallProgress: Double {
         guard totalTarget > 0 else { return 0 }
-        return min(1, NSDecimalNumber(decimal: totalSaved / totalTarget).doubleValue)
+        return min(1, totalSaved / totalTarget)
     }
 
     var body: some View {

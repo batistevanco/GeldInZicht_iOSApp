@@ -23,7 +23,7 @@ struct RecurringTransactionsView: View {
     private var incomeTemplates: [Transaction] { templates.filter { $0.type == .income } }
     private var expenseTemplates: [Transaction] { templates.filter { $0.type == .expense } }
 
-    private var monthlyTotal: Decimal {
+    private var monthlyTotal: Double {
         templates.reduce(0) { result, tx in
             let monthly = monthlyEquivalent(tx)
             return tx.type == .income ? result + monthly : result - monthly
@@ -208,7 +208,7 @@ struct RecurringTransactionsView: View {
         return "–"
     }
 
-    private func monthlyEquivalent(_ tx: Transaction) -> Decimal {
+    private func monthlyEquivalent(_ tx: Transaction) -> Double {
         switch tx.frequency {
         case .none:        return 0
         case .weekly:      return tx.amount * 4
